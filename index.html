@@ -2,26 +2,78 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="assets/css/base.css">
     <title>Portfolio Template</title>
+    <meta name="description" content="Análisis de las páginas web de Awwwards, FWA, The Webby Awards y CSSDA" />
+		<meta name="keywords" content="HTML, CSS, desarrollo web, SEO, accesibilidad, análisis, FWA, CSSDA, Awwwards, The Webby Awards, , Estructura, Usabilidad, Técnico, Concñusión" />
+		<meta name="author" content="Valeria Chacin" />
+		<meta name="robots" content="index, follow" />
+		<link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico" />
   </head>
   <body>
-    <div class="header">
-  <a href="#default" class="logo">CompanyLogo</a>
-  <div class="header-right">
-    <a href="#HOME">HOME</a>
-    <a href="#WORK">WORK</a>
-    <a href="#SOCIAL">SOCIAL</a>
-    <a href="#ABOUT">ABOUT ME</a>
-    <button>
-    CONTACT
-    <div class="arrow-wrapper">
-        <div class="arrow"></div>
+    <header class="site-header">
+      <div class="back" aria-hidden="true"></div>
+      <div class="header-inner">
+        <a class="logo" href="index.html">LOGO</a>
+        <nav role="navigation" aria-label="Main navigation">
+          <a href="index.html">HOME</a>
+          <a href="#">WORK</a>
+          <a href="#">ABOUT</a>
+          <a href="#">CONTACT</a>
+        </nav>
+      </div>
+    </header>
+<div class="parallax-section">
+        <div class="parallax-content">
+            <h3>YOUR NAME</h3>
+            <p>Small description about you and your work</p>
+        </div>
     </div>
-</button>
-  </div>
-</div>
-    <p>Hello World! :D</p>
+      <div class="story-section chapter-2" data-observe="">
+        <div class="story-content">
+            <h2>Chapter 2: The Techniques</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Scrollytelling uses several techniques to create engaging experiences:</p>
+
+            <div class="interactive-cards">
+                <div class="card">
+                    <h4>Fade In</h4>
+                    <p>Elements appear as they enter the viewport, creating a sense of discovery.</p>
+                </div>
+                <div class="card">
+                    <h4>Parallax</h4>
+                    <p>Different layers move at different speeds, creating depth and dimension.</p>
+                </div>
+                <div class="card">
+                    <h4>Triggered Animations</h4>
+                    <p>Actions occur when users reach specific scroll positions.</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 2rem;">These techniques work together to create a cohesive narrative flow.</p>
+        </div>
+    </div>
+<script>
+    (function () {
+      const items = document.querySelectorAll('[data-observe]');
+      if (!items.length) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const el = entry.target;
+          // ensure element is rendered (remove any inline display:none)
+          el.style.removeProperty('display');
+
+          if (entry.isIntersecting && entry.intersectionRatio > 0) {
+            el.classList.add('visible');
+          } else {
+            el.classList.remove('visible');
+          }
+        });
+      }, { threshold: 0.12 });
+
+      items.forEach(i => observer.observe(i));
+    })();
+    </script>
   </body>
 </html>
