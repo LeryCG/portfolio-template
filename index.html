@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
 
     <link rel="stylesheet" href="assets/css/base.css" />
     <title>Portfolio Template</title>
@@ -13,7 +13,7 @@
     />
     <meta
       name="keywords"
-      content="HTML, CSS, desarrollo web, SEO, accesibilidad, análisis, FWA, CSSDA, Awwwards, The Webby Awards, , Estructura, Usabilidad, Técnico, Concñusión"
+      content="HTML, CSS, desarrollo web, SEO, accesibilidad, análisis, FWA, CSSDA, Awwwards, The Webby Awards, Estructura, Usabilidad, Técnico, Conclusión"
     />
     <meta name="author" content="Valeria Chacin" />
     <meta name="robots" content="index, follow" />
@@ -24,14 +24,18 @@
   </head>
 
   <body>
-     <!-- Skip link for accessibility -->
-  <a href="#main" class="skip-link">Skip to main content</a>
+    <!-- Skip link for accessibility -->
+    <a href="#main" class="skip-link">Skip to main content</a>
     <script>
-      // Modal logic for project carousel images
+      // Modal logic for project carousel images (guarded)
       document.addEventListener("DOMContentLoaded", function () {
         const modal = document.getElementById("image-modal");
         const modalImg = document.getElementById("modal-img");
         const modalClose = document.getElementById("modal-close");
+
+        // If there's no modal element on the page, skip setup
+        if (!modal) return;
+
         // Attach modal click handlers to all project carousels
         const carouselTracks = document.querySelectorAll(
           ".projects-carousel .carousel-track"
@@ -41,27 +45,35 @@
             .querySelectorAll(".project-carousel-image img")
             .forEach((img) => {
               img.style.cursor = "zoom-in";
-              img.addEventListener("click", function (e) {
+              img.addEventListener("click", function () {
+                if (!modal) return;
+                if (modalImg) {
+                  modalImg.src = this.src;
+                  modalImg.alt = this.alt || "";
+                }
                 modal.style.display = "flex";
-                modalImg.src = this.src;
-                modalImg.alt = this.alt;
               });
             });
         });
-        modalClose.addEventListener("click", function () {
-          modal.style.display = "none";
-          modalImg.src = "";
-        });
+
+        if (modalClose) {
+          modalClose.addEventListener("click", function () {
+            modal.style.display = "none";
+            if (modalImg) modalImg.src = "";
+          });
+        }
+
         modal.addEventListener("click", function (e) {
           if (e.target === modal) {
             modal.style.display = "none";
-            modalImg.src = "";
+            if (modalImg) modalImg.src = "";
           }
         });
+
         document.addEventListener("keydown", function (e) {
           if (e.key === "Escape") {
             modal.style.display = "none";
-            modalImg.src = "";
+            if (modalImg) modalImg.src = "";
           }
         });
       });
@@ -71,62 +83,71 @@
     <header class="site-header">
       <div class="back" aria-hidden="true"></div>
       <div class="header-inner">
-        <a class="logo" href="index.html">LOGO</a>
+        <a class="logo" href="index.html" aria-label="Home">LOGO</a>
         <div class="nav-controls">
-        <nav role="navigation" aria-label="Main navigation">
-          <a href="index.html">HOME</a>
-          <a href="#">WORK</a>
-          <a href="#">ABOUT</a>
-          <a href="#">CONTACT</a>
-          <label class="switch">
-    <input type="checkbox" id="theme-toggle">
-    <span class="slider"></span>  <script src="assets/js/main.js"></script>
-
-  </label>
-  
-        </nav>
+          <nav role="navigation" aria-label="Main navigation">
+            <a href="index.html">HOME</a>
+            <a href="#">WORK</a>
+            <a href="#">ABOUT</a>
+            <a href="#">CONTACT</a>
+            <label class="switch">
+              <input
+                type="checkbox"
+                id="theme-toggle"
+                aria-label="Toggle theme"
+              />
+              <span class="slider" aria-hidden="true"></span>
+            </label>
+          </nav>
+        </div>
       </div>
     </header>
 
-    <div class="parallax-section">
-      <div class="parallax-content">
-        <h3>YOUR NAME</h3>
-        <p>Small description about you and your work</p>
-      </div>
-    </div>
-    <div class="story-section chapter-2" data-observe="">
-      <div class="story-content">
-        <h2>Chapter 2: The Techniques</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 2rem">
-          Scrollytelling uses several techniques to create engaging experiences:
-        </p>
-
-        <div class="interactive-cards">
-          <div class="card">
-            <h4>Fade In</h4>
-            <p>
-              Elements appear as they enter the viewport, creating a sense of
-              discovery.
-            </p>
-          </div>
-          <div class="card">
-            <h4>Parallax</h4>
-            <p>
-              Different layers move at different speeds, creating depth and
-              dimension.
-            </p>
-          </div>
-          <div class="card">
-            <h4>Triggered Animations</h4>
-            <p>Actions occur when users reach specific scroll positions.</p>
-          </div>
+    <main id="main">
+      <div class="parallax-section">
+        <div class="parallax-content">
+          <h3>YOUR NAME</h3>
+          <p>Small description about you and your work</p>
         </div>
-
-        <p style="margin-top: 2rem">
-          These techniques work together to create a cohesive narrative flow.
-        </p>
       </div>
-    </div>
+      <div class="story-section chapter-2" data-observe="">
+        <div class="story-content">
+          <h2>Chapter 2: The Techniques</h2>
+          <p style="font-size: 1.2rem; margin-bottom: 2rem">
+            Scrollytelling uses several techniques to create engaging
+            experiences:
+          </p>
+
+          <div class="interactive-cards">
+            <div class="card">
+              <h4>Fade In</h4>
+              <p>
+                Elements appear as they enter the viewport, creating a sense of
+                discovery.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Parallax</h4>
+              <p>
+                Different layers move at different speeds, creating depth and
+                dimension.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Triggered Animations</h4>
+              <p>Actions occur when users reach specific scroll positions.</p>
+            </div>
+          </div>
+
+          <p style="margin-top: 2rem">
+            These techniques work together to create a cohesive narrative flow.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <script src="assets/js/main.js"></script>
+
     <script>
       (function () {
         const items = document.querySelectorAll("[data-observe]");
@@ -152,6 +173,5 @@
         items.forEach((i) => observer.observe(i));
       })();
     </script>
-    
   </body>
 </html>
