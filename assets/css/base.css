@@ -1,6 +1,59 @@
 /* Import font first */
 @import url("https://fonts.googleapis.com/css?family=Oswald:500");
 
+/* SMOOTH SCROLLING
+ *
+ * Native CSS smooth scrolling for anchor links. No JavaScript needed!
+ * This is automatically disabled when prefers-reduced-motion is set.
+ */
+html {
+  scroll-behavior: smooth;
+}
+
+/* --------------------------------------------------------------------------
+   SKIP LINK (ACCESSIBILITY)
+
+   🎓 WHY SKIP LINKS?
+   Screen reader and keyboard users shouldn't have to tab through the entire
+   navigation on every page. A skip link lets them jump directly to main content.
+
+   The link is hidden off-screen until focused, then slides into view.
+   This is a WCAG 2.1 Level A requirement for accessible navigation.
+   -------------------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  top: -100%; /* Hidden above viewport */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  background: var(--color-accent);
+  color: white;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 0 0 8px 8px; /* Rounded bottom corners only */
+  z-index: 1000; /* Above everything */
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0; /* Slides into view when focused via keyboard */
+}
+
+.parallax-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.parallax-section-background {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  z-index: -1;
+}
+
 /* Global box-sizing (optional, helpful) */
 *,
 *::before,
@@ -163,6 +216,8 @@ nav a:nth-child(5) {
   align-items: center;
   justify-content: center;
   position: relative;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
 }
 .parallax-section::before {
   content: "";
@@ -432,63 +487,4 @@ body.dark {
   background-color: #121212;
   color: #f5f5f5;
 }
-/* From Uiverse.io by gharsh11032000 */
-/* ===== Switch from Uiverse ===== */
-.switch {
-  font-size: 10px;
-  position: relative;
-  display: inline-block;
-  width: 3.5em;
-  height: 2em;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  inset: 0;
-  border: 2px solid #414141;
-  border-radius: 50px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 1.4em;
-  width: 1.4em;
-  left: 0.2em;
-  bottom: 0.2em;
-  background-color: white;
-  border-radius: inherit;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.switch input:checked + .slider {
-  box-shadow: 0 0 20px rgba(9, 117, 241, 0.8);
-  border: 2px solid #0974f1;
-}
-
-.switch input:checked + .slider:before {
-  transform: translateX(1.5em);
-}
-
-/* ===== Theme styles ===== */
-body {
-  margin: 0;
-  padding: 20px;
-  font-family: system-ui, sans-serif;
-  background-color: #f5f5f5;
-  color: #111;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.dark {
-  background-color: #121212;
-  color: #f5f5f5;
-}
+/* End of file */
