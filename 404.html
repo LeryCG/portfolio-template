@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>404 — Page Not Found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/404.css" />
+    <script src="assets/js/main.js"></script>
+  </head>
+  <body>
+    <main class="error-container">
+      <h1 class="error-code">404</h1>
+
+      <h2
+        class="error-title"
+        data-es="Página no encontrada"
+        data-en="Page not found"
+      >
+        Página no encontrada
+      </h2>
+
+      <p
+        class="error-text"
+        data-es="Lo sentimos, la página que estás buscando no existe o fue movida."
+        data-en="Sorry, the page you are looking for does not exist or was moved."
+      >
+        Lo sentimos, la página que estás buscando no existe o fue movida.
+      </p>
+
+      <button>
+        <a href="index.html" class="btn"><span>GO HOME</span></a>
+      </button>
+    </main>
+
+    <script>
+      // =========================
+      // IDIOMA 404 (AUTOMÁTICO)
+      // =========================
+
+      function cambiarIdioma(lang) {
+        document.querySelectorAll("[data-es]").forEach((el) => {
+          if (el.dataset[lang]) {
+            el.textContent = el.dataset[lang];
+          }
+        });
+
+        // Actualiza atributo lang del HTML
+        document.documentElement.lang = lang;
+      }
+
+      // Lee idioma guardado o usa español por defecto
+      const langGuardado = localStorage.getItem("lang") || "es";
+
+      cambiarIdioma(langGuardado);
+    </script>
+  </body>
+</html>
