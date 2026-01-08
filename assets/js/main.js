@@ -1,7 +1,6 @@
 // Interacción de ejemplo
 document.querySelectorAll("button").forEach((btn) => {
-  btn.addEventListener("click", () => {;
-  });
+  btn.addEventListener("click", () => {});
 });
 console.log("Glassmorphism + Parallax activo ✨");
 // Feedback táctil extra al click
@@ -109,4 +108,3 @@ toggle.addEventListener("change", () => {
     document.body.classList.contains("dark") ? "dark" : "light"
   );
 });
-
