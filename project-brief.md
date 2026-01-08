@@ -30,7 +30,7 @@
 - [ ] HTML5 (semantic markup)
 - [ ] CSS3 (responsive design)
 - [ ] JavaScript (if applicable)
-- [ ] Other: \***\*\_\_\_\*\***
+- [ ] Other: ****\_\_\_****
 
 ### Accessibility Goals
 
