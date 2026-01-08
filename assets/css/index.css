@@ -23,7 +23,7 @@ body {
   color: #333;
 }
 h1 {
-  color: #ffffff;
+  color: #000000;
 }
 
 /* =========================
@@ -204,8 +204,74 @@ nav label {
 }
 
 /* =========================
+   MENU HAMBURGUESA MÓVIL
+========================= */
+/* Hamburger button - oculto en escritorio */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 28px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 100; /* aseguramos que esté encima */
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #16151b;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Menú móvil */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    position: absolute;
+    top: 84px;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+  }
+
+  nav .nav-links.active {
+    display: flex;
+  }
+}
+
+/* =========================
    PARALLAX HERO
 ========================= */
+
+.about-overlay {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 80px;
+}
 .parallax-section {
   padding: 0%;
   min-height: 100vh;
@@ -690,6 +756,31 @@ button:hover::after {
   grid-column: 1 / -1; /* hace que el título ocupe toda la fila */
   margin-bottom: 20px;
 }
+/* Grid 2x2 para desktop */
+#projects .about {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px; /* espacio entre cards */
+  margin-top: 20px; /* separa del título */
+}
+
+#projects .about h1 {
+  grid-column: 1 / -1; /* título ocupa toda la fila */
+  margin-bottom: 20px;
+}
+
+/* Responsive: versión móvil */
+@media (max-width: 768px) {
+  #projects .about {
+    grid-template-columns: 1fr; /* una columna */
+    gap: 20px; /* menos espacio entre cards */
+  }
+
+  #projects .about h1 {
+    text-align: center; /* centra el título en móviles */
+    margin-bottom: 15px;
+  }
+}
 
 /* ========================= FOOTER ========================= */
 .footer {
@@ -708,4 +799,145 @@ button:hover::after {
   letter-spacing: 1px;
   color: white;
   margin: 0;
+}
+/* ========================= ABOUT SECTION RESPONSIVE ========================= */
+.section.about {
+  background: var(--cream);
+  padding: clamp(60px, 8vw, 90px) 60px;
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden; /* evita scroll horizontal */
+}
+
+/* GRID PRINCIPAL */
+.about {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr; /* desktop */
+  gap: 40px;
+}
+
+/* GRID INTERNO */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* HERO IMAGE */
+.hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+/* ABOUT TEXT */
+.about-text {
+  max-width: 100%;
+  color: #333;
+}
+
+/* SKILLS GRID */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+/* SKILL CARD */
+.skill-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ========================= MEDIA QUERIES ========================= */
+
+/* Tablets y móviles grandes */
+@media (max-width: 1024px) {
+  .about {
+    grid-template-columns: 1fr; /* apilar imagen y contenido */
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr; /* apilar texto y skills */
+    justify-items: center;
+    width: 100%;
+  }
+
+  .hero-image img {
+    max-width: 400px; /* limita tamaño de imagen */
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .skill-card {
+    padding: 16px;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .section.about {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr; /* una columna para skills */
+    gap: 15px;
+  }
+
+  .skill-card {
+    padding: 12px;
+  }
+
+  .hero-image img {
+    max-width: 300px;
+  }
+
+  .about-text {
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .section.about {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 480px) {
+  .hero-image img {
+    max-width: 90%;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+  }
+
+  .skill-card h3,
+  .skill-card span {
+    font-size: 0.8rem;
+  }
+
+  .skill-card p {
+    font-size: 0.75rem;
+  }
 }
