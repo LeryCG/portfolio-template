@@ -15,6 +15,17 @@ document.querySelectorAll(".interactive, button").forEach((el) => {
     el.style.transform = "";
   });
 });
+// Feedback táctil extra al click
+document.querySelectorAll(".interactive, button").forEach((el) => {
+  el.addEventListener("mousedown", () => {
+    el.style.transform += " scale(0.97)";
+  });
+
+  el.addEventListener("mouseup", () => {
+    el.style.transform = "";
+  });
+});
+
 const toggle = document.getElementById("theme-toggle");
 
 // Load saved theme
@@ -32,4 +43,38 @@ toggle.addEventListener("change", () => {
     "theme",
     document.body.classList.contains("dark") ? "dark" : "light"
   );
+});
+/* ===== BUTTON INTERACTIONS ===== */
+document.querySelectorAll("button").forEach((btn) => {
+  // Mouse position for glow
+  btn.addEventListener("mousemove", (e) => {
+    const rect = btn.getBoundingClientRect();
+    btn.style.setProperty("--x", `${e.clientX - rect.left}px`);
+    btn.style.setProperty("--y", `${e.clientY - rect.top}px`);
+  });
+
+  // Click actions
+  btn.addEventListener("click", () => {
+    const action = btn.dataset.action;
+
+    switch (action) {
+      case "schedule":
+        // ejemplo: scroll a sección
+        document
+          .querySelector(".support")
+          ?.scrollIntoView({ behavior: "smooth" });
+        break;
+
+      case "contact":
+        window.location.href = "#contact";
+        break;
+
+      default:
+        console.log("Botón clickeado:", btn.textContent.trim());
+    }
+  });
+});
+// Staggered container reveals (e.g., skill grids, project cards)
+document.querySelectorAll("[data-reveal-stagger]").forEach((el) => {
+  staggerObserver.observe(el);
 });
