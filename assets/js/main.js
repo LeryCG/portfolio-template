@@ -1,4 +1,4 @@
-// Interacción de ejemplo
+v// Interacción de ejemplo
 document.querySelectorAll("button").forEach((btn) => {
   btn.addEventListener("click", () => {
     alert("Acción de ejemplo 🚜");
@@ -58,19 +58,23 @@ document.querySelectorAll("button").forEach((btn) => {
     const action = btn.dataset.action;
 
     switch (action) {
-      case "schedule":
-        // ejemplo: scroll a sección
+      case "scroll-about":
         document
-          .querySelector(".support")
+          .querySelector("#about")
+          ?.scrollIntoView({ behavior: "smooth" });
+        break;
+
+      case "scroll-projects":
+        document
+          .querySelector("#projects")
           ?.scrollIntoView({ behavior: "smooth" });
         break;
 
       case "contact":
-        window.location.href = "#contact";
+        document
+          .querySelector("#support")
+          ?.scrollIntoView({ behavior: "smooth" });
         break;
-
-      default:
-        console.log("Botón clickeado:", btn.textContent.trim());
     }
   });
 });
