@@ -78,3 +78,12 @@ document.querySelectorAll("button").forEach((btn) => {
 document.querySelectorAll("[data-reveal-stagger]").forEach((el) => {
   staggerObserver.observe(el);
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    hamburger.classList.toggle("open");
+  });
+});
