@@ -87,3 +87,22 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburger.classList.toggle("open");
   });
 });
+// =========================
+// TOGGLE DARK MODE
+// =========================
+consttoggle = document.getElementById("theme-toggle");
+
+// Cargar tema guardado en localStorage
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+  toggle.checked = true;
+}
+
+// Cambiar tema al hacer click
+toggle.addEventListener("change", () => {
+  document.body.classList.toggle("dark");
+  localStorage.setItem(
+    "theme",
+    document.body.classList.contains("dark") ? "dark" : "light"
+  );
+});
