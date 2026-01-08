@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Farmers Market</title>
+    <title>Portfolio Template</title>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;600&display=swap"
@@ -11,58 +11,95 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
-    <!-- NAV -->
-    <!-- Navigation Bar -->
-    <!-- Contains logo, navigation links, theme toggle, and hamburger menu -->
+    <!-- SKIP LINK -->
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <!-- HEADER / NAV -->
     <header class="site-header">
       <div class="back" aria-hidden="true"></div>
+
       <div class="header-inner">
         <a class="logo" href="index.html" aria-label="Home">LOGO</a>
-        <div class="nav-controls">
-          <nav role="navigation" aria-label="Main navigation">
-            <a href="index.html">HOME</a>
-            <a href="#">WORK</a>
-            <a href="#">ABOUT</a>
-            <a href="#">CONTACT</a>
-            <label class="switch">
-              <input
-                type="checkbox"
-                id="theme-toggle"
-                aria-label="Toggle theme"
-              />
-              <span class="slider" aria-hidden="true"></span>
-            </label>
-          </nav>
-        </div>
+
+        <nav role="navigation" aria-label="Main navigation">
+          <a href="#hero">HOME</a>
+          <a href="#work">WORK</a>
+          <a href="#about">ABOUT</a>
+          <a href="#support">SUPPORT</a>
+
+          <label class="switch">
+            <input
+              type="checkbox"
+              id="theme-toggle"
+              aria-label="Toggle theme"
+            />
+            <span class="slider" aria-hidden="true"></span>
+          </label>
+        </nav>
       </div>
     </header>
+
+    <!-- MAIN -->
     <main id="main">
-      <!-- PARALLAX SECTION -->
-      <div class="parallax-section">
+      <!-- HERO PARALLAX -->
+      <section class="parallax-section">
         <div class="parallax-content">
           <h3>YOUR NAME</h3>
           <p>Small description about you and your work</p>
+          <button
+            class="btn-primary"
+            data-action="scroll-about"
+            style="color: antiquewhite; background-color: black"
+          >
+            View Work
+          </button>
         </div>
-      </div>
+      </section>
+
       <!-- HERO -->
-      <section class="hero">
+      <section class="hero" id="hero">
         <div class="hero-image">
           <img
             src="https://images.unsplash.com/photo-1528825871115-3581a5387919"
-            alt=""
+            alt="Fresh produce at the market"
           />
         </div>
 
         <div class="hero-content">
-          <h1>
-            The Largest<br />Locally-Owned Farmers<br />Market on the East Coast
-          </h1>
-          <p>
-            Local Farmers Market brings together the freshest produce,
-            handcrafted goods, and friendly faces.
-          </p>
-          <button class="btn-primary">View Schedule</button>
+          <h1>About Me<br /></h1>
+          <p>Welcome to my portfolio! I am a passionate designer</p>
+          <div class="skills-grid" data-reveal-stagger>
+            <div class="skill-card">
+              <span class="skill-icon">🎨</span>
+              <h3>CSS/Sass</h3>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 95%"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <span class="skill-icon">⚡</span>
+              <h3>JavaScript</h3>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 90%"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <span class="skill-icon">📱</span>
+              <h3>Responsive</h3>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 98%"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <span class="skill-icon">♿</span>
+              <h3>A11y</h3>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--fill: 85%"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -71,109 +108,112 @@
         Owned & operated by a committee of local farmers & small business owners
       </section>
 
-      <!-- ABOUT (PARALLAX) -->
-      <section class="about-parallax">
+      <!-- PROJECTS (PARALLAX) -->
+      <section class="about-parallax" id="about">
         <div class="about-overlay">
           <div class="about">
+            <h1>Projects</h1>
+            <!-- CARD 1 -->
             <div class="card split-card glass interactive">
               <div class="card-image">
                 <img
                   src="https://images.unsplash.com/photo-1506806732259-39c2d0268443"
-                  alt=""
+                  alt="Local farmers"
                 />
               </div>
               <div class="card-text">
-                <h3>Who We Are</h3>
-                <p>
-                  We’re a community-driven initiative proudly run by a committee
-                  of local farmers and small business owners.
-                </p>
+                <h3>Project 1</h3>
+                <p>Descript</p>
               </div>
             </div>
 
+            <!-- CARD 2 -->
             <div class="card split-card glass interactive">
               <div class="card-image">
                 <img
                   src="https://images.unsplash.com/photo-1464226184884-fa280b87c399"
-                  alt=""
+                  alt="Fresh vegetables"
                 />
               </div>
               <div class="card-text">
-                <h3>Our Mission</h3>
+                <h3>Project 2</h3>
                 <p>
                   Our mission is to connect our community with fresh,
                   locally-grown food and thoughtfully crafted goods.
                 </p>
               </div>
             </div>
+            <!-- CARD 3 -->
+            <div class="card split-card glass interactive">
+              <div class="card-image">
+                <img
+                  src="https://images.unsplash.com/photo-1506806732259-39c2d0268443"
+                  alt="Local farmers"
+                />
+              </div>
+              <div class="card-text">
+                <h3>Project 3</h3>
+                <p>
+                  We’re a community-driven initiative proudly run by a committee
+                  of local farmers and small business owners.
+                </p>
+              </div>
+            </div>
+            <!-- CARD 4 -->
+            <div class="card split-card glass interactive">
+              <div class="card-image">
+                <img
+                  src="https://images.unsplash.com/photo-1506806732259-39c2d0268443"
+                  alt="Local farmers"
+                />
+              </div>
+              <div class="card-text">
+                <h3>Project 4</h3>
+                <p>
+                  We’re a community-driven initiative proudly run by a committee
+                  of local farmers and small business owners.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- SUPPORT -->
-      <section class="support">
-        <h2>Ways to Support Us</h2>
+      <!-- Contact Section -->
+      <section id="contact" class="section contact">
+        <div class="container">
+          <h2 class="section-title animate-on-scroll">Get In Touch</h2>
+          <div class="contact-content animate-on-scroll">
+            <p>
+              Interested in working together? Let's talk about your project.
+            </p>
+            <br />
+            <button
+              a
+              href="mailto:hello@example.com"
+              class="btn-primary"
+              data-action="scroll-about"
+              style="color: antiquewhite; background-color: black"
+            >
+              Contact Me
+            </button>
 
-        <div class="support-grid">
-          <div class="support-card split-card glass interactive">
-            <div class="card-image">
-              <img
-                src="https://images.unsplash.com/photo-1589927986089-35812388d1f4"
-                alt=""
-              />
-            </div>
-            <div class="card-text">
-              <h4>Become a Volunteer</h4>
-              <p>Help with events, vendors, and community activities.</p>
-            </div>
-          </div>
-
-          <div class="support-card split-card glass interactive">
-            <div class="card-image">
-              <img
-                src="https://images.unsplash.com/photo-1492724441997-5dc865305da7"
-                alt=""
-              />
-            </div>
-            <div class="card-text">
-              <h4>Host / Sponsor an Event</h4>
-              <p>Partner with us to host unique community experiences.</p>
-            </div>
-          </div>
-
-          <div class="support-card split-card glass interactive">
-            <div class="card-image">
-              <img
-                src="https://images.unsplash.com/photo-1506806732259-39c2d0268443"
-                alt=""
-              />
-            </div>
-            <div class="card-text">
-              <h4>Shop the Market</h4>
-              <p>Support local farmers and artisans every week.</p>
-            </div>
-          </div>
-
-          <div class="support-card split-card glass interactive">
-            <div class="card-image">
-              <img
-                src="https://images.unsplash.com/photo-1602526216431-5c77b62e6b6c"
-                alt=""
-              />
-            </div>
-            <div class="card-text">
-              <h4>Become a Vendor</h4>
-              <p>Sell your fresh or handmade products at our market.</p>
+            <div class="social-links">
+              <a href="#" aria-label="GitHub">GitHub</a>
+              <a href="#" aria-label="LinkedIn">LinkedIn</a>
+              <a href="#" aria-label="Twitter">Twitter</a>
             </div>
           </div>
         </div>
       </section>
     </main>
+
     <!-- FOOTER -->
-    <footer class="footer">
-      <p>&copy; 2024 Ishika Maurya | All Rights Reserved</p>
+    <footer class="footer" id="footer">
+      <p>&copy; 2025 Your Name | All Rights Reserved</p>
     </footer>
 
+    <!-- JS -->
     <script src="assets/js/main.js"></script>
     <script>
       (function () {
