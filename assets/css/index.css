@@ -941,3 +941,110 @@ button:hover::after {
     font-size: 0.75rem;
   }
 }
+/* =========================
+   DARK MODE
+========================= */
+body.dark {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+/* HEADER / NAV */
+body.dark .site-header {
+  background: #1e1e1e;
+}
+
+body.dark nav a {
+  color: #e0e0e0;
+}
+
+body.dark nav a::before {
+  background: #e0e0e0;
+}
+
+/* HERO / PARALLAX */
+body.dark .parallax-content {
+  color: #ffffff;
+}
+
+body.dark .parallax-section::before {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* ABOUT SECTION */
+body.dark .section.about {
+  background: #1e1e1e;
+}
+
+body.dark .about-text p {
+  color: #cccccc;
+}
+
+/* SKILL CARDS */
+body.dark .skill-card {
+  background: rgba(30, 30, 30, 0.25);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+}
+
+body.dark .skill-card h3,
+body.dark .skill-card p {
+  color: #ffffff;
+}
+
+/* PROJECT CARDS */
+body.dark .card.glass {
+  background: rgba(30, 30, 30, 0.25);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* BUTTONS */
+body.dark button {
+  border-color: #ffffff;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* CONTACT SECTION */
+body.dark h1 {
+  color: #e0e0e0;
+}
+body.dark .logo {
+  color: #e0e0e0;
+}
+body.dark .contact-content {
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark .contact-form input,
+body.dark .contact-form textarea {
+  background: #2a2a2a;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+body.dark .contact-form button {
+  background: #444;
+  color: #ffffff;
+}
+
+body.dark .contact-info {
+  color: #e0e0e0;
+}
+
+body.dark .contact-info p,
+body.dark .contact-info .info-item p {
+  color: #cccccc;
+}
+
+/* FOOTER */
+body.dark .footer {
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark .footer a {
+  color: #ffffff;
+}
