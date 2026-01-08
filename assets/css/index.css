@@ -1,0 +1,711 @@
+/* =========================
+   GOOGLE FONTS
+========================= */
+@import url("https://fonts.googleapis.com/css?family=Oswald:500");
+
+/* =========================
+   RESET & BASE
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #8fb1e3;
+  color: #333;
+}
+h1 {
+  color: #ffffff;
+}
+
+/* =========================
+   VARIABLES
+========================= */
+:root {
+  --blue: #8fb1e3;
+  --cream: #fdf6e9;
+  --olive: #8a8f3a;
+  --brown: #a45a2a;
+  --peach: #f3b39c;
+
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.35);
+}
+
+/* =========================
+   SKIP LINK
+========================= */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #16151b;
+  color: #fff;
+  padding: 10px 16px;
+  z-index: 999;
+  border-radius: 0 0 10px 10px;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* =========================
+   HEADER / NAV
+========================= */
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 84px;
+  background: white;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+}
+
+.header-inner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #16151b;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+nav a {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #16151b;
+  font-size: 15px;
+  letter-spacing: 1px;
+  position: relative;
+  padding: 12px 8px;
+}
+
+/* underline animation */
+nav a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #16151b;
+  top: 50%;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s ease;
+}
+nav a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ========================= THEME SWITCH ========================= */
+.theme-checkbox {
+  --toggle-size: 6px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 6.25em;
+  height: 3.125em;
+  background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background-size: 205%;
+  background-position: 0;
+  transition: 0.4s;
+  border-radius: 99em;
+  position: relative;
+  cursor: pointer;
+  font-size: var(--toggle-size);
+}
+
+.theme-checkbox::before {
+  content: "";
+  width: 2.25em;
+  height: 2.25em;
+  position: absolute;
+  top: 0.438em;
+  left: 0.438em;
+  background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background-size: 205%;
+  background-position: 100%;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.theme-checkbox:checked::before {
+  left: calc(100% - 2.25em - 0.438em);
+  background-position: 0;
+}
+
+.theme-checkbox:checked {
+  background-position: 100%;
+}
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 84px;
+  background: white;
+  z-index: 30;
+  display: flex;
+  align-items: center; /* centra verticalmente */
+  justify-content: center;
+  padding: 0 24px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center; /* centra logo + nav */
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1100px;
+  height: 100%; /* ocupa toda la altura del header */
+}
+
+nav {
+  display: flex;
+  align-items: center; /* centra verticalmente los links */
+  gap: 18px;
+}
+
+nav a,
+nav input,
+nav label {
+  margin: 0;
+  height: auto;
+  line-height: normal; /* evita que links o inputs sobresalgan */
+  align-self: center; /* asegura centrado individual */
+}
+
+/* =========================
+   PARALLAX HERO
+========================= */
+.parallax-section {
+  padding: 0%;
+  min-height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.parallax-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  z-index: 2;
+  padding: 1rem;
+}
+
+.parallax-content h3 {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.parallax-content p {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+button {
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 12px 26px;
+  border: 1px solid #333;
+  background: transparent;
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 1px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+button:active {
+  transform: scale(0.94);
+}
+
+/* glow */
+button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(255, 255, 255, 0.35),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+button:hover::after {
+  opacity: 1;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  background: var(--cream);
+  padding: 120px 60px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.hero img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.hero-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.6rem;
+}
+
+.hero-content p {
+  margin: 20px 0;
+}
+
+/* =========================
+   ABOUT PARALLAX
+========================= */
+.about-parallax {
+  background-image: url("https://images.unsplash.com/photo-1506806732259-39c2d0268443");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.about-overlay {
+  background: rgba(255, 255, 255, 0.55);
+  padding: 80px;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* =========================
+   GLASS CARDS
+========================= */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* =========================
+   CARDS
+========================= */
+.split-card {
+  display: flex;
+  overflow: hidden;
+  min-height: 220px;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 40%;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-text {
+  padding: 24px;
+  color: white;
+}
+
+.card-text h3,
+.card-text h4 {
+  font-family: "Playfair Display", serif;
+}
+
+/* =========================
+   CARD INTERACTIONS
+========================= */
+.interactive {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.interactive:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+}
+
+.interactive:active {
+  transform: scale(0.97);
+}
+
+/* =========================
+   SUPPORT
+========================= */
+.support {
+  background: var(--cream);
+  padding: 80px 60px;
+}
+
+.support h2 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 40px;
+}
+
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* ========================= ABOUT PARALLAX ========================= */
+.about-parallax {
+  background-image: url("https://images.unsplash.com/photo-1506806732259-39c2d0268443");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.about-overlay {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 80px;
+}
+/* =========================
+   ABOUT SECTION FIX
+========================= */
+
+.section.about {
+  background: var(--white);
+  padding: clamp(60px, 8vw, 90px) 60px;
+}
+
+.section.about .container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* IMAGE */
+.section.about .hero-image {
+  grid-column: 1 / 2;
+}
+
+.section.about .hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+}
+
+/* TEXT */
+.about-text {
+  color: #333;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+} /* ========================= GLASS CARDS ========================= */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+} /* ========================= CARDS ========================= */
+.split-card {
+  display: flex;
+  overflow: hidden;
+  min-height: 220px;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 40%;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-text {
+  padding: 24px;
+  color: white;
+}
+
+.card-text h3,
+.card-text h4 {
+  font-family: "Oswald", sans-serif;
+} /* ========================= CARD INTERACTIONS ========================= */
+.interactive {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.interactive:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+}
+.interactive:active {
+  transform: scale(0.97);
+} /* ========================= SUPPORT ========================= */
+.support {
+  background: var(--cream);
+  padding: 80px 60px;
+}
+.support h2 {
+  font-family: "Oswald", sans-serif;
+  margin-bottom: 40px;
+}
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+} /* ----------- 7. About Section -------------------------------------------------------------------------- */
+.about {
+  background: var(--color-bg-alt);
+}
+.about-grid {
+  display: grid;
+  gap: var(--space-xl);
+}
+@media (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+.about-text {
+  max-width: 100%;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 90%;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-muted);
+}
+/* =========================
+   SKILLS
+========================= */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 28px;
+}
+@media (min-width: 1100px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* CARD */
+/* =========================
+   SKILL CARDS – GLASS
+========================= */
+
+.skill-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* hover microinteraction */
+.skill-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
+}
+
+.skill-card:active {
+  transform: scale(0.97);
+}
+.skill-card h3,
+.skill-card span {
+  color: rgb(0, 0, 0);
+}
+
+.skill-card p {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* ICON */
+.skill-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* TITLE */
+.skill-card h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #16151b;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+/* BAR */
+.skill-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+/* FILL */
+.skill-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #f3b39c, #ffd7c9);
+  border-radius: 999px;
+  animation: grow 1.4s ease-out forwards;
+}
+
+/* ANIMATION */
+@keyframes grow {
+  to {
+    width: var(--fill);
+  }
+}
+/* -------------------9. Contact Section -------------------------------------------------------------------------- */
+.contact {
+  background: var(--color-bg-alt);
+  text-align: center;
+}
+.contact-content p {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+.social-links a {
+  color: var(--color-text-muted);
+  transition: color 0.3s;
+}
+.social-links a:hover {
+  color: var(--color-accent);
+}
+
+/* Grid 2x2 para proyectos */
+#projects .about {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px; /* espacio entre cards */
+  margin-top: 20px; /* separa del título */
+}
+
+#projects .about h1 {
+  grid-column: 1 / -1; /* hace que el título ocupe toda la fila */
+  margin-bottom: 20px;
+}
+
+/* ========================= FOOTER ========================= */
+.footer {
+  background: black;
+  padding: 20px;
+  text-align: center;
+}
+.footer p {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #16151b;
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: white;
+  margin: 0;
+}
