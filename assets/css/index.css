@@ -321,6 +321,13 @@ nav label {
 /* =========================
    BUTTONS
 ========================= */
+.start-over-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
 button {
   cursor: pointer;
   border-radius: 999px;
@@ -376,8 +383,8 @@ button:hover::after {
 }
 
 .hero img {
-  width: 100%;
-  border-radius: 20px;
+  width: 100% height;
+  border-radius: 60px;
 }
 
 .hero-content h1 {
@@ -1047,4 +1054,56 @@ body.dark .footer {
 
 body.dark .footer a {
   color: #ffffff;
+}
+/* =========================
+   SPLIT CARD HOVER REVEAL
+========================= */
+
+.split-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Texto base */
+.split-card .card-text {
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
+/* Info extra oculta */
+.split-card .more-info {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+}
+
+/* Hover + keyboard focus */
+.split-card:hover .card-text,
+.split-card:focus-within .card-text {
+  transform: translateY(-10px);
+}
+
+.split-card:hover .more-info,
+.split-card:focus-within .more-info {
+  max-height: 200px;
+  opacity: 1;
+}
+
+/* Detalles */
+.project-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.project-tags li {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
 }
