@@ -1,9 +1,9 @@
 # Project Brief
 
-**Student:** [Your Name]  
-**Handle:** @[your-github-username]  
+**Student:** [Valeria Chacin]  
+**Handle:** [@LeryCG]
 **Course:** Web Design 2025 · Fall  
-**Date:** [Fill in date - Week 2]
+**Date:** [09/01/2026]
 
 ---
 
@@ -11,7 +11,7 @@
 
 ### What are you building?
 
-<!-- Describe your project in 2-3 sentences -->
+A Portfolio template as a final exam for the class with a minimalist design and only one page deployed.
 
 ### Who is it for?
 
@@ -43,7 +43,7 @@
 
 ### Responsive Design Strategy
 
-- [ ] Mobile-first approach
+- [x] Mobile-first approach
 - [ ] Flexible grid system
 - [ ] Scalable typography
 - [ ] Optimized images
@@ -55,9 +55,10 @@
 
 ### Key Sections/Pages
 
-1.
-2.
-3.
+1. Hero section
+2. About Me
+3. Projects
+4. Contact 
 
 ### Content Sources
 
@@ -65,9 +66,9 @@
 
 ### Multilingual Considerations
 
-- Primary language:
-- Secondary language (optional):
-- Translation strategy:
+- Primary language: Spanish 
+- Secondary language (optional): None
+- Translation strategy: None
 
 ---
 
@@ -75,15 +76,15 @@
 
 ### Visual Style
 
-<!-- Describe your aesthetic approach -->
+Minimalist
 
 ### Color Palette
 
-<!-- List your main colors -->
+Black and white
 
 ### Typography
 
-<!-- What fonts/typeface approach will you use? -->
+The entirety of the page uses Oswald 
 
 ### Inspiration/References
 
@@ -95,16 +96,16 @@
 
 ### Week 4 Goals
 
-- [ ] Functional homepage
-- [ ] Basic responsive layout
-- [ ] Core content in place
+- [X] Functional homepage
+- [X] Basic responsive layout
+- [X] Core content in place
 - [ ] Accessible markup
 
 ### Final Project Goals
 
-- [ ] Fully responsive across devices
+- [X] Fully responsive across devices
 - [ ] Meets WCAG 2.1 AA standards
-- [ ] Fast loading performance
+- [X] Fast loading performance
 - [ ] Complete content
 - [ ] Polished visual design
 
